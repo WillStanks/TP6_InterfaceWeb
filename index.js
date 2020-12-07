@@ -155,3 +155,40 @@ $(function() {
     }, 1000);
   });
 });
+
+/* SHADOW */
+
+$(document).ready(function () {
+	$("#menu-anime li").append('<img class="shadow" src="../images/icon-shadow" width="162" height="27" alt="" />');
+	
+
+	$("#menu-anime li").hover(
+		function() {
+			var e = this;
+			$(e).find("a").animate( { marginTop: "-20px" }, 250, 
+				
+				function() {
+					$(e).find("a").animate({ marginTop: "-15px" }, 250);
+					});
+				
+				$(e).find("img.shadow").animate({ width: "80%", height: "20px", marginLeft: "16px", opacity: 0.25 }, 250);
+			},
+		
+		function() {
+					 
+			var e = this;
+			$(e).find("a").animate({ marginTop: "5px" }, 250, 
+					
+					function() {
+						$(e).find("a").animate({ marginTop: "0px" }, 250);
+						});
+					
+					
+			$(e).find("img.shadow").animate({ width: "100%", height: "27px", marginLeft: "0", opacity: 1 }, 250);
+			
+			 }
+	);
+
+
+	
+});

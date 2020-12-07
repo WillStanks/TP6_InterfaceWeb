@@ -315,13 +315,13 @@ descendant d’un élément popup*/
 
 /* Sélectionne tout élément popup qui est 
 Frère général du target (#cache:target) */
-#cache:target~.popup {
+#cache:target ~ .popup {
   display: block;
 
   border: 5px white double;
 }
 
-#cache2:target~.popup2 {
+#cache2:target ~ .popup2 {
   display: block;
 
   border: 5px white double;
@@ -393,15 +393,15 @@ gabarit.
   transition: 0.4s;
 }
 
-input:checked+.glisse {
+input:checked + .glisse {
   background-color: #3500d3;
 }
 
-input:focus+.glisse {
+input:focus + .glisse {
   box-shadow: 0 0 1px black;
 }
 
-input:checked+.glisse:before {
+input:checked + .glisse:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -431,11 +431,8 @@ input:checked+.glisse:before {
   align-items: center;
 }
 
-.cache-img {
-  display: none;
-}
-
 /* Menu-anime */
+
 #menu-anime {
   margin: 0 auto 50px auto;
   width: 1000px;
@@ -448,71 +445,43 @@ input:checked+.glisse:before {
   margin-right: 15px;
   width: 160px;
   height: 72px;
-  position: relative;
 }
 
-.item-menu:hover {
-  margin-left: 200px;
-}
-
-.menu-item > a, .menu-item > a:hover{
+#menu-anime a,
+#menu-anime a:hover {
   margin: 0 auto;
-  width: 122px; 
+  width: 122px;
   height: 59px;
   padding-top: 15px;
   text-indent: 0px;
   overflow: hidden;
   background-image: url("../images/icons.png");
   background-repeat: no-repeat;
-  background-size: 664px 65px; 
+  background-size: 664px 65px;
   display: block;
   position: relative;
-  z-index: 2; 
+  z-index: 2;
 }
 
 #menu-anime li.bouton1 a {
   background-position: -3px -3px;
-  }
+}
 #menu-anime li.bouton2 a {
   background-position: -181px -3px;
 }
 #menu-anime li.bouton3 a {
-  background-position: -359px -3px; 
+  background-position: -359px -3px;
 }
 #menu-anime li.bouton4 a {
   background-position: -537px -3px;
 }
-#menu-anime li.bouton5 a{
+
+#menu-anime li.bouton5 a {
   background-position: -3px -3px;
 }
-  
-#menu-anime li img.shadow { 
+
+#menu-anime li img.shadow {
   margin: 0 auto;
-  position: absolute;
-  bottom: 0;
   left: 0;
   z-index: 1;
-}
-
-.sous-liste{
-  margin: 0 auto 50px auto;
-  width: 1000px;
-  min-height: 130px;
-  text-align: center;
-  list-style: none;
-}
-
-.item-menu a, .item-menu a:hover{
-  margin: 0 auto;
-  width: 122px; 
-  height: 59px;
-  padding-top: 15px;
-  text-indent: 0px; 
-  overflow: hidden;
-  background-image: url("../images/icons.png");
-  background-repeat: no-repeat;
-  background-size: 664px 65px; 
-  display: block;
-  position: relative;
-  z-index: 2; 
 }
