@@ -36,10 +36,6 @@ strong {
 #navigation a {
   color: white;
 }
-#navigation a:hover,
-#navigation a:focus {
-  background: #6f2232;
-}
 
 /* Bloc central */
 #centre {

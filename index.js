@@ -98,57 +98,57 @@ function changerHtmlMod11() {
 
 
 //--------------------------------- TP6 (jQuery) --------------------------------------//
-$(function() {
-  $("#img-1-p").mouseover(function() {
+$(function () {
+  $("#img-1-p").mouseover(function () {
     $(this).fadeOut(1000);
     setTimeout(() => {
       $("#img-1-g").fadeIn(1000);
     }, 1000);
   });
 
-  $("#img-1-g").mouseout(function() {
+  $("#img-1-g").mouseout(function () {
     $(this).fadeOut(1000);
     setTimeout(() => {
       $("#img-1-p").fadeIn(1000);
     }, 1000);
   });
 
-  $("#img-2-p").mouseover(function() {
+  $("#img-2-p").mouseover(function () {
     $(this).fadeOut(1000);
     setTimeout(() => {
       $("#img-2-g").fadeIn(1000);
     }, 1000);
   });
 
-  $("#img-2-g").mouseout(function() {
+  $("#img-2-g").mouseout(function () {
     $(this).fadeOut(1000);
     setTimeout(() => {
       $("#img-2-p").fadeIn(1000);
     }, 1000);
   });
 
-  $("#img-3-p").mouseover(function() {
+  $("#img-3-p").mouseover(function () {
     $(this).fadeOut(1000);
     setTimeout(() => {
       $("#img-3-g").fadeIn(1000);
     }, 1000);
   });
 
-  $("#img-3-g").mouseout(function() {
+  $("#img-3-g").mouseout(function () {
     $(this).fadeOut(1000);
     setTimeout(() => {
       $("#img-3-p").fadeIn(1000);
     }, 1000);
   });
 
-  $("#img-4-p").mouseover(function() {
+  $("#img-4-p").mouseover(function () {
     $(this).fadeOut(1000);
     setTimeout(() => {
       $("#img-4-g").fadeIn(1000);
     }, 1000);
   });
 
-  $("#img-4-g").mouseout(function() {
+  $("#img-4-g").mouseout(function () {
     $(this).fadeOut(1000);
     setTimeout(() => {
       $("#img-4-p").fadeIn(1000);
@@ -159,36 +159,29 @@ $(function() {
 /* SHADOW */
 
 $(document).ready(function () {
-	$("#menu-anime li").append('<img class="shadow" src="../images/icon-shadow" width="162" height="27" alt="" />');
-	
-
-	$("#menu-anime li").hover(
-		function() {
-			var e = this;
-			$(e).find("a").animate( { marginTop: "-20px" }, 250, 
-				
-				function() {
-					$(e).find("a").animate({ marginTop: "-15px" }, 250);
-					});
-				
-				$(e).find("img.shadow").animate({ width: "80%", height: "20px", marginLeft: "16px", opacity: 0.25 }, 250);
-			},
-		
-		function() {
-					 
-			var e = this;
-			$(e).find("a").animate({ marginTop: "5px" }, 250, 
-					
-					function() {
-						$(e).find("a").animate({ marginTop: "0px" }, 250);
-						});
-					
-					
-			$(e).find("img.shadow").animate({ width: "100%", height: "27px", marginLeft: "0", opacity: 1 }, 250);
-			
-			 }
-	);
+  $("#menu-anime li").append('<img class="shadow" src="../images/icon-shadow.png" width="162" height="20" alt="" />');
 
 
-	
+  $("#menu-anime li").hover(
+    function () {
+      var e = this;
+      $(e).find("a").animate({ marginTop: "-20px" }, 250,
+
+        function () {
+          $(e).find("a").animate({ marginTop: "-15px" }, 250);
+        });
+
+      $(e).find("img.shadow").animate({ width: "80%", height: "20px", marginLeft: "16px", opacity: 0.25 }, 250);
+    },
+
+    function () {
+      var e = this;
+      $(e).find("a").animate({ marginTop: "5px" }, 250,
+        function () {
+          $(e).find("a").animate({ marginTop: "0px" }, 250);
+        });
+      $(e).find("img.shadow").animate({ width: "100%", height: "27px", marginLeft: "0", opacity: 1 }, 250);
+
+    }
+  );
 });
