@@ -4,6 +4,9 @@ var boutonSwitch = document.getElementById("bouton-switch");
 // Chercher la balise du lien css pour la changer dynamiquemen.
 var lienCss = document.getElementById("lien-css");
 
+var lienJquery = document.getElementById("jquery");
+var lienJs = document.getElementById("notre-js");
+
 // Chercher le div avec id centre pour le déplacer lors de la transition au gabarit 8.
 var divCentre = document.getElementById("centre");
 
@@ -158,11 +161,11 @@ $(function () {
 
 /* SHADOW */
 
-$(document).ready(function () {
-  $("#menu-anime li").append('<img class="shadow" src="../images/icon-shadow.png" width="162" height="20" alt="" />');
+$(function () {
+  $("#menu-anime > li").append('<img class="shadow" src="../images/icon-shadow.png" width="150" height="20" alt="" />');
 
 
-  $("#menu-anime li").hover(
+  $("#menu-anime > li").hover(
     function () {
       var e = this;
       $(e).find("a").animate({ marginTop: "-20px" }, 250,
