@@ -431,6 +431,11 @@ input:checked + .glisse:before {
   align-items: center;
 }
 
+/* Cache la grosse image avant de survoler la petite. */
+.cache-img {
+  display: none;
+}
+
 /* Menu-anime */
 
 #menu-anime {
@@ -440,6 +445,7 @@ input:checked + .glisse:before {
   min-height: 250px;
   text-align: center;
   list-style: none;
+  z-index: 10;
 }
 
 #menu-anime li {
@@ -464,7 +470,6 @@ input:checked + .glisse:before {
   display: block;
   z-index: 10;
 }
-
 #menu-anime a,
 #menu-anime a:hover {
   margin: 0 auto;
