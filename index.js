@@ -60,6 +60,7 @@ boutonSwitch.addEventListener("click", () => {
 
   // Alterner le booléen estModele11.
   estModele11 = !estModele11;
+  
 });
 
 /**
@@ -76,6 +77,7 @@ function changerCss(valeur) {
  * de gabarit pour le numéro 8 (centre-bis, navigation...).
  */
 function changerHtmlMod8() {
+  enleverShadow();
   centreBis = document.getElementById("centre-bis");
 
   divGlobal.insertBefore(nouvelleNavigation, divCentre);
@@ -85,6 +87,7 @@ function changerHtmlMod8() {
   tempSecondaire.appendChild(pCopyright);
   divCentre.appendChild(tempSecondaire);
   divPied.remove();
+  shadow();
 }
 
 /**
@@ -92,11 +95,13 @@ function changerHtmlMod8() {
  * de gabarit pour le numéro 11 (centre-bis, navigation...).
  */
 function changerHtmlMod11() {
+  enleverShadow();
   nouvelleNavigation.remove();
   tempPrincipal.remove();
   tempSecondaire.remove();
   divCentre.appendChild(centreBisTemp);
   global.appendChild(divPied);
+  shadow();
 }
 
 
@@ -160,10 +165,9 @@ $(function () {
 });
 
 /* SHADOW */
-
-$(function () {
+$(document).ready(function() {shadow()});
+function shadow() {
   $("#menu-anime > li").append('<img class="shadow" src="../images/icon-shadow.png" width="150" height="20" alt="" />');
-
 
   $("#menu-anime > li").hover(
     function () {
@@ -187,4 +191,8 @@ $(function () {
 
     }
   );
-});
+}
+
+function enleverShadow() {
+  $("img").remove(".shadow");
+}
