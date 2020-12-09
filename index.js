@@ -4,9 +4,6 @@ var boutonSwitch = document.getElementById("bouton-switch");
 // Chercher la balise du lien css pour la changer dynamiquemen.
 var lienCss = document.getElementById("lien-css");
 
-var lienJquery = document.getElementById("jquery");
-var lienJs = document.getElementById("notre-js");
-
 // Chercher le div avec id centre pour le déplacer lors de la transition au gabarit 8.
 var divCentre = document.getElementById("centre");
 
@@ -60,7 +57,7 @@ boutonSwitch.addEventListener("click", () => {
 
   // Alterner le booléen estModele11.
   estModele11 = !estModele11;
-  
+
 });
 
 /**
@@ -87,6 +84,7 @@ function changerHtmlMod8() {
   tempSecondaire.appendChild(pCopyright);
   divCentre.appendChild(tempSecondaire);
   divPied.remove();
+  galery();
   shadow();
 }
 
@@ -101,74 +99,59 @@ function changerHtmlMod11() {
   tempSecondaire.remove();
   divCentre.appendChild(centreBisTemp);
   global.appendChild(divPied);
+  galery();
   shadow();
 }
 
-
 //--------------------------------- TP6 (jQuery) --------------------------------------//
-$(function () {
-  $("#img-1-p").mouseover(function () {
-    $(this).fadeOut(1000);
-    setTimeout(() => {
-      $("#img-1-g").fadeIn(1000);
-    }, 1000);
-  });
 
-  $("#img-1-g").mouseout(function () {
-    $(this).fadeOut(1000);
-    setTimeout(() => {
-      $("#img-1-p").fadeIn(1000);
-    }, 1000);
-  });
+// Appelle les deux fonctions qui activent l'ombrage et la galery sur les pages.
+// lorsque le document charge.
+$(document).ready(function () { shadow(); galery(); });
 
-  $("#img-2-p").mouseover(function () {
-    $(this).fadeOut(1000);
-    setTimeout(() => {
-      $("#img-2-g").fadeIn(1000);
-    }, 1000);
-  });
+/*-----------------------------------GALLERIE---------------------------------*/
+/**
+ * Fonction qui s'occupe de la galerie d'image. Elle est appelée lorsque la
+ * page télécharge et lorsqu'on change de css pour s'assurer qu'elle s'applique
+ * aux composantes html.
+ */
+function galery() {
+  $(function () {
+    // Mettre la première image en gros et entourer la miniature d'une bordure.
+    $('.mini').css('border', '5px solid white');
+    $('#grande-img').attr('src', $('.images-site img:first').attr('src'));
+    $('.images-site img:first').css('border', '5px solid lime');
 
-  $("#img-2-g").mouseout(function () {
-    $(this).fadeOut(1000);
-    setTimeout(() => {
-      $("#img-2-p").fadeIn(1000);
-    }, 1000);
-  });
+    // Fonction qui s'active lorsqu'on click sur la miniature
+    $('.mini').click(function () {
+      // Remettre les autres miniatures à un fond blanc.
+      $('.images-site .mini').css('border', '5px  white solid');
 
-  $("#img-3-p").mouseover(function () {
-    $(this).fadeOut(1000);
-    setTimeout(() => {
-      $("#img-3-g").fadeIn(1000);
-    }, 1000);
+      // Affecter l'image cliquée d'une bordure verte.
+      $(this).css('border', '5px solid lime');
+      var nom = $(this).attr('src');
+      // Petite animation d'opacité de la grande image
+      $('#grande-img').fadeOut(2000, function () {
+        //Attribuer la source de la miniature à la grande image.
+        $('#grande-img').attr('src', nom);
+        $('#grande-img').fadeIn(2000);
+      });
+    });
   });
+}
 
-  $("#img-3-g").mouseout(function () {
-    $(this).fadeOut(1000);
-    setTimeout(() => {
-      $("#img-3-p").fadeIn(1000);
-    }, 1000);
-  });
-
-  $("#img-4-p").mouseover(function () {
-    $(this).fadeOut(1000);
-    setTimeout(() => {
-      $("#img-4-g").fadeIn(1000);
-    }, 1000);
-  });
-
-  $("#img-4-g").mouseout(function () {
-    $(this).fadeOut(1000);
-    setTimeout(() => {
-      $("#img-4-p").fadeIn(1000);
-    }, 1000);
-  });
-});
-
-/* SHADOW */
-$(document).ready(function() {shadow()});
+/* ----------------------------------SHADOW---------------------------------- */
+/**
+ * Fonction qui s'occupe des effets de bon et d'ombrage des éléments 
+ * du menu de navigation. Elle est appelée lorsque la
+ * page télécharge et lorsqu'on change de css pour s'assurer qu'elle s'applique
+ * aux composantes html.
+ */
 function shadow() {
+  /* Attache l'ombre a tout les éléments de la liste du menu anime */
   $("#menu-anime > li").append('<img class="shadow" src="../images/icon-shadow.png" width="150" height="20" alt="" />');
 
+  /* Fonction qui fait lever l'éléments lorsqu'on le survole pour crééer un effet de bon */
   $("#menu-anime > li").hover(
     function () {
       var e = this;
@@ -181,6 +164,7 @@ function shadow() {
       $(e).find("img.shadow").animate({ width: "80%", height: "20px", marginLeft: "16px", opacity: 0.25 }, 250);
     },
 
+    /* Fonction qui fait raptisser et réduire l'opacité de l'ombre pour créer l'effet de bon */
     function () {
       var e = this;
       $(e).find("a").animate({ marginTop: "5px" }, 250,
@@ -192,7 +176,7 @@ function shadow() {
     }
   );
 }
-
+/* Fonction qui enlève le shadow lorsqu'on change de css pour pas qui se duplique */
 function enleverShadow() {
   $("img").remove(".shadow");
 }
